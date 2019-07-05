@@ -6,17 +6,17 @@
 # disp - описываемая дисперсия
 # param - параметр, в который пользователь передает либо числовое значение, либо факторное (словарь с группой значений)
 
-df = pd.read_csv('df.csv', sep=';', encoding="cp1251")
 
 def quantity(param):
     if type(param) is dict:
         return 1
 
-def cheat_sheet(ycolumn, category, param):
+
+def cheat_sheet(y_column_name, category, param):
     def classification():
         if df.__len__() < 100000:
             print("use Linear SVC or Text Data")
-            if type(df[ycolumn][1]) is str:    # проверка типа данных
+            if type(df[y_column_name][1]) is str:    # проверка типа данных
                 print("use Naive Bayes")
             else:
                 print("use Kneighbors Classifier or SVC and Ensemble Classifiers")
@@ -50,17 +50,20 @@ def cheat_sheet(ycolumn, category, param):
             print("use kernel approximation")
 
     if df.__len__() > 50:
-      for index, row in df.iterrows():
+      for _, row in df.iterrows():
             if row[category] == 1:
-                if df[ycolumn]:
+                if df[y_column_name]:
                     classification()
                 else:
-                    clustering()
+                    clustering() # входных параметров нету
             else:
                 if quantity(param) == 1:
-                    regression()
+                    regression() # входных параметров нету
                 else:
                     dimensionality()
     else:
         print("Get more data")
 
+if __name__ == '__main__':
+    df = pd.read_csv('df.csv', sep=';', encoding="cp1251")
+    cheat_sheet("test", "test", "test")
