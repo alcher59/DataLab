@@ -1,4 +1,12 @@
-﻿import pandas as pd
+import pandas as pd
+from sklearn.linear_model import SGDClassifier
+from sklearn.kernel_approximation import RBFSampler
+from sklearn import svm
+from sklearn import datasets
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import NearestNeighbors
+import numpy as np
+from sklearn import linear_model
 
 # outlist - словарь с выходами
 # ycolumn - столбец c выходными данными
@@ -11,36 +19,70 @@ def quantity(param):
     if type(param) is dict:
         return 1
 
+def sgd_classifier():
+
+def kernel_approximation():
+
+def linear_svc():
+
+def naive_bayes():
+
+def kneighbors_classifier():
+
+def ensemble_classifiers():
+
+def kmeans():
+
+def spectral_clustering():
+
+def minibatch_kmeans():
+
+def mean_shift():
+
+def sgd_regressor():
+
+def lasso():
+
+def elastic_net():
+
+def svr_kernel():
+
+def ensemble_regressors():
+
+def ridge_regressor():
+
+
 
 def cheat_sheet(y_column_name, category, param):
     def classification():
         if df.__len__() < 100000:
-            print("use Linear SVC or Text Data")
+            linear_svc() or
             if type(df[y_column_name][1]) is str:    # проверка типа данных
-                print("use Naive Bayes")
+                naive_bayes()
             else:
-                print("use Kneighbors Classifier or SVC and Ensemble Classifiers")
+                kneighbors_classifier() or ensemble_classifiers()
         else:
-            print("use SGD Classifier or kernel approximation")
+            sgd_classifier()
 
     def clustering(outlist):
         if outlist!=None:
             if df.__len__() < 10000:
-                print("use KMeans or Spectral Clustering and GMM")
+                kmeans() or spectral_clustering()
             else:
-                print("use MiniBatch KMeans")
+                minibatch_kmeans()
         else:
             if df.__len__() < 10000:
-                print("use MeanShift and VBGMM")
+                mean_shift()
             else:
                 print("Tough luck")
 
     def regression(disp):
         if df.__len__() < 100000:
             if disp <= 0.8:
-                print("use Lasso and ElasticNet")
+                lasso() and elastic_net()
             else:
-                print("use RidgeRegression and SVR(kernel='linear') or SVR(kernel='rbf') and EnsembleRegressions ")
+                ridge_regressor() and svr_kernel() or
+                ensemble_regressors() and svr_kernel()
 
     def dimensionality():
         print("use Randomized PCA or")
