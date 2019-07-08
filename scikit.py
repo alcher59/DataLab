@@ -24,7 +24,7 @@ def cheat_sheet(y_column_name, category, param):
             print("use SGD Classifier or kernel approximation")
 
     def clustering(outlist):
-        if outlist:
+        if outlist!=None:
             if df.__len__() < 10000:
                 print("use KMeans or Spectral Clustering and GMM")
             else:
