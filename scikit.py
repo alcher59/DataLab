@@ -55,10 +55,10 @@ def cheat_sheet(y_column_name, category, param):
                 if df[y_column_name]:
                     classification()
                 else:
-                    clustering(outlist) # входных параметров нету
+                    clustering("test")
             else:
                 if quantity(param) == 1:
-                    regression(disp) # входных параметров нету
+                    regression("test")
                 else:
                     dimensionality()
     else:
